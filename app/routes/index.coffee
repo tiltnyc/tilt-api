@@ -3,4 +3,4 @@
 #
 
 exports.index = (req, res) ->
-  res.render('index', { title: 'Express' })
+  res.send({ title: 'Express' })
