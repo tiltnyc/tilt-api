@@ -1,3 +1,7 @@
+BaseController = require './base_controller'
+
 class HomesController extends BaseController
   show: ->
-    console.log @response
+    @response.send('')
+
+module.exports = HomesController

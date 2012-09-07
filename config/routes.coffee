@@ -6,7 +6,6 @@ HomesController = require './../app/controllers/homes_controller'
 module.exports = (app) ->
 
   app.get '/', (request, response) ->
-    controller = new HomesController(request, response)
-    controller.show()
+    new HomesController(request, response).show()
 
   app.get '/users', user.list

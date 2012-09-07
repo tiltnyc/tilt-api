@@ -1,4 +1,4 @@
 class BaseController
-  constructor: (request, response) ->
-    @request  = request
-    @response = response
+  constructor: (@request, @response) ->
+
+module.exports = BaseController
