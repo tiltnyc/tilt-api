@@ -1,0 +1,11 @@
+default:
+  db:
+    uri: 'mongodb://localhost/tilt_development'
+  app:
+    port: 3000
+
+test:
+  db:
+    uri: 'mongodb://localhost/tilt_test'
+  app:
+    port: 3030
