@@ -1,3 +1,3 @@
-class Admin
+class Administrator
   constructor: () ->
     console.log arguments

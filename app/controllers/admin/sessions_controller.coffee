@@ -1,7 +1,14 @@
-BaseController = require './base_controller'
+BaseController = require './../base_controller'
+Administrator  = require '../../models/administrator'
 
-class AdminSessionsController extends BaseController
+Admin = {}
+
+class Admin.SessionsController extends BaseController
   show: ->
-    @response.send('')
+    @response.render 'admin/sessions/show'
 
-module.exports = HomesController
+  create: ->
+    Administrator
+    @response.render 'admin/sessions/show'
+
+module.exports = Admin

@@ -7,7 +7,7 @@ Feature: Admin creates an Event
       | admin    | nimda    | Admin McAdmin |
     And I am on the homepage
     When I go to the admin login page
-    And I fill in "username" with "admin"
-    #And I enter "nimda" in the "password" field
-    #When I press "Login"
-    #Then I should see "Logged in as Admin" within the title bar
+    And I fill in "admin[username]" with "admin"
+    And I fill in "admin[password]" with "nimda"
+    When I press "Login"
+    Then I should see "Logged in as Admin"

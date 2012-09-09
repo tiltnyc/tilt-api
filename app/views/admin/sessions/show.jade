@@ -1,0 +1,10 @@
+html
+#container
+  form(action='admin/sessions/create', method='post')
+    label(for='admin_username') username
+    input(id='admin_username', name='admin[username]')
+    br
+    label(for='admin_password') password
+    input(id='admin_password', name='admin[password]')
+    br
+    input(type='submit', name='Login')

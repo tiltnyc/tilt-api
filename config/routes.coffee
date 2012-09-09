@@ -1,5 +1,5 @@
-HomesController         = require './../app/controllers/homes_controller'
-AdminSessionsController = require './../app/controllers/admin/sessions_controller'
+HomesController = require './../app/controllers/homes_controller'
+Admin           = require './../app/controllers/admin/sessions_controller'
 
 module.exports = (app) ->
 
@@ -7,4 +7,7 @@ module.exports = (app) ->
     new HomesController(request, response).show()
 
   app.get '/admin/login', (request, response) ->
-    new AdminSessionsController(request, response).show()
+    new Admin.SessionsController(request, response).show()
+
+  app.post '/admin/sessions/create', (request, response) ->
+    new Admin.SessionsController(request, response).create()
