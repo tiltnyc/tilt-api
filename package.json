@@ -1,0 +1,30 @@
+{
+  "name": "tiltnyc",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app",
+    "specs": "./node_modules/.bin/mocha  --compilers coffee:coffee-script  spec/*/*spec*",
+    "features": "./node_modules/.bin/cucumber-js features/*",
+    "build": "./node_modules/.bin/mocha  --compilers coffee:coffee-script  spec/*/*spec* && ./node_modules/.bin/cucumber-js features/*"
+  },
+  "dependencies": {
+    "coffee-script": "1.3.3",
+    "express":       "3.0.0rc4",
+    "fs":            "latest",
+    "jade":          "0.27.2",
+    "mongoose":      "3.1.1",
+    "package":       "latest",
+    "underscore":    "1.3.1",
+    "walk":          "latest",
+    "yaml-config":   "latest"
+  },
+  "devDependencies": {
+    "cucumber":         "latest",
+    "database-cleaner": "latest",
+    "forgery":          "latest",
+    "mocha":            "latest",
+    "should":           "latest",
+    "zombie":           "1.4.1"
+  }
+}
