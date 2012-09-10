@@ -6,7 +6,6 @@ Feature: Admin creates an Event
       | username | password | name          |
       | admin    | nimda    | Admin McAdmin |
     When I am on the homepage
-    And show me the page
     And I click "Login"
     And I fill in "admin[username]" with "admin"
     And I fill in "admin[password]" with "nimda"

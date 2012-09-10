@@ -5,15 +5,17 @@ Administrator  = mongoose.model('Administrator')
 Admin = {}
 
 class Admin.SessionsController extends BaseController
-  show: ->
-    @response.render 'admin/sessions/show'
+  new: ->
+    @response.render 'admin/sessions/new'
 
   create: ->
-    administrator = Administrator(@request.body.admin)
-    administrator.save (error) ->
-      if error
-        throw error
-      else
-        @response.redirect '/'
+    params =
+      username: @request.body.admin.username
+      password: @request.body.admin.password
+
+    Administrator.findOne params, (error, administrator) =>
+      throw error if error
+      @request.session.administrator_id = administrator._id
+      @response.redirect '/'
 
 module.exports = Admin

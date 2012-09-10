@@ -4,6 +4,9 @@ steps = module.exports = ->
 
   @World = require('../support/world').World
 
+  @After (next) ->
+    @clean next
+
   @Then /^I (?:am on|go to) (.+)$/, (path, next) ->
     @browser.visit(@selectorFor(path), next)
 
@@ -18,12 +21,13 @@ steps = module.exports = ->
 
   @Then /^I should see "(.+)"$/, (text, next) ->
     @browser.html().should.include(text)
+    next()
 
   @Then /^show me the page$/, (next) ->
     @browser.wait =>
-      console.log arguments
-      console.log "\nBrowser Errors:", @browser.errors
+      if @browser.errors.length
+        console.log "\nBrowser Errors:", @browser.errors
       console.log @browser.html()
-      @browser.viewInBrowser()
+      #@browser.viewInBrowser()
 
       next()

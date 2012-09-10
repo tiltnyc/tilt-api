@@ -7,7 +7,7 @@ module.exports = (app) ->
     new HomesController(request, response).show()
 
   app.get '/admin/login', (request, response) ->
-    new Admin.SessionsController(request, response).show()
+    new Admin.SessionsController(request, response).new()
 
   app.post '/admin/sessions/create', (request, response) ->
     new Admin.SessionsController(request, response).create()

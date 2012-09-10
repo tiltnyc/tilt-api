@@ -9,6 +9,7 @@
   "dependencies": {
     "coffee-script": "1.3.3",
     "express":       "3.0.0rc4",
+    "everyauth":     "latest",
     "fs":            "latest",
     "jade":          "0.27.2",
     "mongoose":      "3.1.1",
@@ -18,10 +19,11 @@
     "yaml-config":   "latest"
   },
   "devDependencies": {
-    "cucumber":      "latest",
-    "forgery":       "latest",
-    "mocha":         "latest",
-    "should":        "latest",
-    "zombie":        "1.4.1"
+    "cucumber":         "latest",
+    "database-cleaner": "latest",
+    "forgery":          "latest",
+    "mocha":            "latest",
+    "should":           "latest",
+    "zombie":           "1.4.1"
   }
 }

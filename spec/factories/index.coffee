@@ -2,7 +2,7 @@
 
 # Define Factories bellow this line
 
-Factory.define 'Admin',
+Factory.define 'Administrator',
   name:     'Admin'
   username: 'admin'
   password: 'password'
