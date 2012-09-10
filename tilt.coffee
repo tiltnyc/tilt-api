@@ -1,6 +1,5 @@
 express = require 'express'
 http    = require 'http'
-path    = require 'path'
 
 app = express()
 

@@ -1,7 +1,8 @@
-assert = require('assert')
+{ mongoose } = require '../spec_helper'
+Administrator = mongoose.model('Administrator')
 
 describe 'Administrator', ->
-  describe '.new', ->
-    it '', ->
-      assert.equal(-1, [1,2,3].indexOf(5))
-      assert.equal(-1, [1,2,3].indexOf(0))
+  describe '#save()', ->
+    it 'saves without error', (done) ->
+      admin = new Administrator(username: admin)
+      admin.save(done)
