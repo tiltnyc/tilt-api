@@ -1,5 +1,6 @@
 BaseController = require './../base_controller'
-Administrator  = require '../../models/administrator'
+{ mongoose }   = require '../../../config/database'
+Administrator  = mongoose.model('Administrator')
 
 Admin = {}
 
@@ -8,7 +9,11 @@ class Admin.SessionsController extends BaseController
     @response.render 'admin/sessions/show'
 
   create: ->
-    Administrator
-    @response.render 'admin/sessions/show'
+    administrator = Administrator(@request.body.admin)
+    administrator.save (error) ->
+      if error
+        throw error
+      else
+        @response.redirect '/'
 
 module.exports = Admin

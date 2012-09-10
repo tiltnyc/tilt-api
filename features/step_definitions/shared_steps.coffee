@@ -13,5 +13,17 @@ steps = module.exports = ->
   @Then /^I press "(.+)"$/, (name, next) ->
     @browser.pressButton(name, next)
 
+  @Then /^I click "(.+)"$/, (name, next) ->
+    @browser.clickLink(name, next)
+
   @Then /^I should see "(.+)"$/, (text, next) ->
     @browser.html().should.include(text)
+
+  @Then /^show me the page$/, (next) ->
+    @browser.wait =>
+      console.log arguments
+      console.log "\nBrowser Errors:", @browser.errors
+      console.log @browser.html()
+      @browser.viewInBrowser()
+
+      next()

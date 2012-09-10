@@ -5,8 +5,9 @@ Feature: Admin creates an Event
     Given an admin exists with the following information:
       | username | password | name          |
       | admin    | nimda    | Admin McAdmin |
-    And I am on the homepage
-    When I go to the admin login page
+    When I am on the homepage
+    And show me the page
+    And I click "Login"
     And I fill in "admin[username]" with "admin"
     And I fill in "admin[password]" with "nimda"
     When I press "Login"
