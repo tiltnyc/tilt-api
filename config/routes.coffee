@@ -12,11 +12,17 @@ module.exports = (app) ->
   app.get '/admin/logout', (request, response) ->
     new Admin.SessionsController(request, response).destroy()
 
-  app.get '/admin/dashboard', (request, response) ->
-    new Admin.DashboardController(request, response).show()
-
   app.post '/admin/sessions/create', (request, response) ->
     new Admin.SessionsController(request, response).create()
 
+  app.get '/admin/dashboard', (request, response) ->
+    new Admin.DashboardController(request, response).show()
+
   app.get '/admin/events', (request, response) ->
     new Admin.EventsController(request, response).index()
+
+  app.get '/admin/events/new', (request, response) ->
+    new Admin.EventsController(request, response).new()
+
+  app.post '/admin/events/create', (request, response) ->
+    new Admin.EventsController(request, response).create()

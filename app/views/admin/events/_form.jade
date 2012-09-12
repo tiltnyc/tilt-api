@@ -1,0 +1,11 @@
+form(action='create', method='post')
+  label(for='event_name') Name
+  input(id='event_name', name='event[name]')
+  br
+  label(for='event_theme') Theme
+  input(id='event_theme', name='event[theme]')
+  br
+  label(for='event_start_date') Start Date
+  input(id='event_start_date', name='event[start_date]')
+  br
+  input(type='submit', name='Save')

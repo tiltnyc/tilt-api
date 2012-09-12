@@ -1,0 +1,7 @@
+extends ../../layouts/application
+
+block content
+  for message in locals.messages
+    .message= message
+  p= event.name
+  p= event.theme
