@@ -18,4 +18,8 @@ class Admin.SessionsController extends BaseController
       @request.session.administrator_id = administrator._id
       @response.redirect '/'
 
+  destroy: ->
+    @request.session.administrator_id = null
+    @response.redirect '/'
+
 module.exports = Admin

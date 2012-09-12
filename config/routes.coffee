@@ -9,5 +9,8 @@ module.exports = (app) ->
   app.get '/admin/login', (request, response) ->
     new Admin.SessionsController(request, response).new()
 
+  app.get '/admin/logout', (request, response) ->
+    new Admin.SessionsController(request, response).destroy()
+
   app.post '/admin/sessions/create', (request, response) ->
     new Admin.SessionsController(request, response).create()

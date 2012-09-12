@@ -19,8 +19,11 @@ steps = module.exports = ->
   @Then /^I click "(.+)"$/, (name, next) ->
     @browser.clickLink(name, next)
 
-  @Then /^I should see "(.+)"$/, (text, next) ->
-    @browser.html().should.include(text)
+  @Then /^I should (not )?see "(.+)"$/, (negation, text, next) ->
+    if negation
+      @browser.html().should.not.include(text)
+    else
+      @browser.html().should.include(text)
     next()
 
   @Then /^show me the page$/, (next) ->
