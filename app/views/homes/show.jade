@@ -1,5 +1,7 @@
 html
 #container
-  a(href='admin/login') Login
   if administrator != null
     p "Logged in as #{ administrator.name }"
+    a(href='admin/logout') Log Out
+  else
+    a(href='admin/login') Login
