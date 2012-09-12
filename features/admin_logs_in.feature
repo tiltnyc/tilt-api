@@ -1,5 +1,5 @@
 Feature: Admin logs in and logs out
-  As an admin, I can create an event
+  As an admin, I can log in and out
 
   Background:
     Given an admin exists with the following information:

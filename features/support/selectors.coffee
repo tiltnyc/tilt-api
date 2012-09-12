@@ -8,5 +8,6 @@ module.exports =
     return "#{@selectorFor(namedElement)}:contains('#{text}')"
 
   # Paths
-  'the home ?page': '/'
   'the admin login page': '/admin/login/'
+  'the home ?page': '/'
+  'the admin dashboard': '/admin/dashboard'
