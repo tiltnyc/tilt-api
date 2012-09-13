@@ -7,4 +7,7 @@ class BaseController
   response: ->
     @response
 
+  isAdmin: ->
+    @request.session.administrator_id?
+
 module.exports = BaseController

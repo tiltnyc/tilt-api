@@ -8,6 +8,9 @@ html
   body
     #flashes
       block flashes
+        - if ( typeof messages != 'undefined' )
+          - each message, key in locals.messages
+            p(class="#{ key }")= message
 
     #content
       block content

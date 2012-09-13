@@ -26,3 +26,6 @@ module.exports = (app) ->
 
   app.post '/admin/events/create', (request, response) ->
     new Admin.EventsController(request, response).create()
+
+  app.get '/admin/events/:id', (request, response) ->
+    new Admin.EventsController(request, response).show()

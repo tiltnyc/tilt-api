@@ -13,10 +13,17 @@ class EventsController extends BaseController
       event: new Event
 
   create: ->
-    event = new Event @request.body.event
-    event.save =>
-      @response.locals.messages = ["#{event.name} created"]
+    newEvent = new Event @request.body.event
+    newEvent.save (error, event) =>
+      throw error if error
+      @request.session.messages =
+        notice: "#{event.name} created"
+      @response.redirect "admin/events/#{event._id}"
+
+  show: ->
+    Event.findOne @request.params.id, (error, event) =>
       @response.render 'admin/events/show',
         event: event
+        messages: @request.session.messages
 
 module.exports = EventsController
