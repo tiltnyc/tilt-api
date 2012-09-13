@@ -14,6 +14,7 @@ module.exports = (app) ->
     app.set 'view engine', 'jade'
     app.use express.favicon()
     app.use express.bodyParser()
+    app.use express.logger('dev')
     app.use express.methodOverride()
     app.use express.cookieParser('2ee27441d3ee4a527de019325dc7e8ddee6039cc7cad9801181c6fd68204129bdf3225cafabb3f6d0324a7bd851dabbd0bd3')
     app.use express.session()

@@ -1,23 +1,20 @@
-BaseController = require './../base_controller'
 { mongoose }   = require '../../../config/database'
 Administrator  = mongoose.model('Administrator')
 
-class SessionsController extends BaseController
-  new: ->
-    @response.render 'admin/sessions/new'
+module.exports =
+  new: (req, res) ->
+    res.render 'admin/sessions/new'
 
-  create: ->
+  create: (req, res) ->
     params =
-      username: @request.body.admin.username
-      password: @request.body.admin.password
+      username: req.body.admin.username
+      password: req.body.admin.password
 
-    Administrator.findOne params, (error, administrator) =>
+    Administrator.findOne params, (error, administrator) ->
       throw error if error
-      @request.session.administrator_id = administrator._id
-      @response.redirect '/'
+      req.session.administrator_id = administrator._id
+      res.redirect '/'
 
-  destroy: ->
-    @request.session.administrator_id = null
-    @response.redirect '/'
-
-module.exports = SessionsController
+  destroy: (req, res) ->
+    req.session.administrator_id = null
+    res.redirect '/'
