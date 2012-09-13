@@ -1,0 +1,8 @@
+extends ../../layouts/application
+
+block content
+  a(href='/admin/events/new') New Event
+
+  - if ( typeof events != 'undefined' )
+    - each event in events
+      p= event.name
