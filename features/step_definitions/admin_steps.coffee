@@ -12,3 +12,12 @@ steps = module.exports = ->
       administrator.save (error) ->
         throw error if error
         next()
+
+  @Given /^I am logged in as an admin$/, (next) ->
+    administrator = new Administrator({username: 'user', password: 'pass', name: 'me'})
+    administrator.save =>
+      @browser.visit '/admin/login', (error, browser) ->
+        browser.
+          fill('admin[username]', administrator.username).
+          fill('admin[password]', administrator.password).
+          pressButton('Login', next)

@@ -1,7 +1,10 @@
-html
-#container
+extends ../layouts/application
+
+block content
   if administrator != null
     p "Logged in as #{ administrator.name }"
     a(href='admin/logout') Log Out
+    br
+    a(href='admin/dashboard') Dashboard
   else
     a(href='admin/login') Login
