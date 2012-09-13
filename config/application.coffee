@@ -12,9 +12,6 @@ module.exports = (app) ->
     app.set 'port', process.env.PORT || settings.app.port || 3000
     app.set 'views', "#{app.root}/app/views"
     app.set 'view engine', 'jade'
-    app.set 'view options',
-      layout: 'layouts/application'
-
     app.use express.favicon()
     app.use express.bodyParser()
     app.use express.methodOverride()
