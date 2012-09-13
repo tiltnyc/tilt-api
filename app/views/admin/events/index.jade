@@ -5,4 +5,5 @@ block content
 
   - if ( typeof events != 'undefined' )
     - each event in events
-      p= event.name
+      .event
+        a(href="/admin/events/#{event._id}/edit") "edit #{event.name}"

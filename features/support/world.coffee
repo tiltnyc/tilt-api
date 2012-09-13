@@ -5,6 +5,7 @@ app = require '../../tilt'
 {Factory}       = require 'forgery'
 selectors       = require './selectors'
 _               = require 'underscore'
+sugar           = require 'sugar'
 { mongoose }    = require '../../config/database'
 DatabaseCleaner = require 'database-cleaner'
 zombie          = require 'zombie'
@@ -19,6 +20,7 @@ class World
     # this.browser will be available in step definitions
     @browser   = new zombie.Browser()
     @_         = _
+    @sugar     = sugar
     @selectors = selectors
 
     # tell Cucumber we're finished and to use 'this' as the world instance

@@ -1,4 +1,5 @@
-should = require 'should'
+should       = require 'should'
+{ mongoose } = require '../../config/database'
 
 steps = module.exports = ->
 
@@ -34,3 +35,7 @@ steps = module.exports = ->
       #@browser.viewInBrowser()
 
       next()
+
+  @Then /^an? (.*) exists with the following:$/, (modelName, table, next) ->
+    model = mongoose.model(modelName.camelize())
+    model.create table.hashes(), next
