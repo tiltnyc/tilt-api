@@ -7,3 +7,4 @@ block content
     - each event in events
       .event
         a(href="/admin/events/#{event._id}/edit") Edit #{event.name}
+        a(href="/admin/events/#{event._id}/teams/new") Add a team to #{event.name}

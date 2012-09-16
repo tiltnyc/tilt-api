@@ -21,10 +21,10 @@
     "yaml-config":   "latest"
   },
   "devDependencies": {
+    "cheerio":          "latest",
     "cucumber":         "latest",
     "database-cleaner": "latest",
     "forgery":          "latest",
-    "jquery":           "latest",
     "mocha":            "latest",
     "should":           "latest",
     "zombie":           "1.4.1"

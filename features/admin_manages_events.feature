@@ -23,10 +23,12 @@ Feature: Admin manages events
       | name    | theme | start_date |
       | Gangnam | Style | 12/11/2012 |
     When I click "Events"
-    Then I should see "Edit Gangnam"
-    When I click "Edit Gangnam"
+    And I click "Edit Gangnam"
     Then I should see "Editing Gangnam"
-    And show me the contents of the event name
     And the value of the event name should be "Gangnam"
     And the value of the event theme should be "Style"
     And the value of the event start date should be "12/11/2012"
+    When I fill in the event name with "Oppa Gangnam"
+    And I press "Save"
+    Then I should see "Oppa Gangnam updated"
+    And I should see "Oppa Gangnam"

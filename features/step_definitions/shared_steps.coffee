@@ -30,9 +30,8 @@ steps = module.exports = ->
 
   @Then /^the value of ([^"]+) should be "([^"]+)"$/, (selector, value, next) ->
     selector = @selectorFor(selector)
-    console.log selector
-    console.log Object.keys @$(selector)
-    ''.should.eql value, "#{selector} should have had a value of #{value}"
+    value = @$(@browser.html()).find(selector)[0]['attribs']['value']
+    value.should.eql value, "#{selector} should have had a value of #{value}"
     next()
 
   @Then /^an? (.*) exists with the following:$/, (modelName, table, next) ->
