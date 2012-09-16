@@ -1,5 +1,5 @@
 form(
-  action="events/#{ event._id }/teams/create"
+  action=( team.isNew ) ? 'create' : 'update'
   method='post' )
   label(for='team_name') Name
   input(id='team_name', name='team[name]', value=team.name)
