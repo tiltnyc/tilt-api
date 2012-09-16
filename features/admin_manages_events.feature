@@ -17,6 +17,8 @@ Feature: Admin manages events
     And I should see "Gangnam"
     And I should see "Style"
     And I should see "Sat Sep 29"
+    When I click "Events"
+    Then I should see "Gangnam"
 
   Scenario: Admin can edit an event
     Given an event exists with the following:
