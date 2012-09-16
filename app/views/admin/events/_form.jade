@@ -1,11 +1,11 @@
-form(action='create', method='post')
+form( action= ( event.isNew ) ? 'create' : 'update' , method='post' )
   label(for='event_name') Name
-  input(id='event_name', name='event[name]')
+  input(id='event_name', name='event[name]', value=event.name)
   br
   label(for='event_theme') Theme
-  input(id='event_theme', name='event[theme]')
+  input(id='event_theme', name='event[theme]', value=event.theme)
   br
   label(for='event_start_date') Start Date
-  input(id='event_start_date', name='event[start_date]')
+  input(id='event_start_date', name='event[start_date]', value=event.start_date)
   br
   input(type='submit', name='Save')

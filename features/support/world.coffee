@@ -2,23 +2,27 @@ process.env.NODE_ENV = 'test'
 
 app = require '../../tilt'
 
-{Factory}       = require 'forgery'
-selectors       = require './selectors'
-_               = require 'underscore'
 { mongoose }    = require '../../config/database'
+{ Factory }     = require 'forgery'
+
+require '../../spec/factories'
+
+_               = require 'underscore'
+cheerio         = require 'cheerio'
 DatabaseCleaner = require 'database-cleaner'
+selectors       = require './selectors'
+sugar           = require 'sugar'
 zombie          = require 'zombie'
 zombie.site     = "http://localhost:#{ app.get('port') }/"
 
 databaseCleaner = new DatabaseCleaner('mongodb')
 
-require '../../spec/factories'
-
 class World
   constructor: (callback) ->
     # this.browser will be available in step definitions
-    @browser   = new zombie.Browser()
-    @_         = _
+    @browser = new zombie.Browser()
+    @_ = _
+    @$ = cheerio
     @selectors = selectors
 
     # tell Cucumber we're finished and to use 'this' as the world instance
