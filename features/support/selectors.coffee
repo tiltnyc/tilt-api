@@ -12,6 +12,7 @@ module.exports =
   'the event name':        '#event_name'
   'the event theme':       '#event_theme'
   'the event start date':  '#event_start_date'
+  'the team name':         '#team_name'
   'the home ?page':        '/'
   'the admin dashboard':   '/admin/dashboard'
 

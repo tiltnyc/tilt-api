@@ -18,4 +18,6 @@ module.exports = (app) ->
   app.get  '/admin/events/:id/edit',    Admin.EventsController.edit
   app.post '/admin/events/:id/update',  Admin.EventsController.update
 
-  app.get '/admin/events/:event_id/teams/new',  Admin.TeamsController.new
+  app.get '/admin/events/:event_id/teams/new',      Admin.TeamsController.new
+  app.post '/admin/events/:event_id/teams/create',  Admin.TeamsController.create
+  app.get '/admin/events/:event_id/teams/:id',  Admin.TeamsController.show

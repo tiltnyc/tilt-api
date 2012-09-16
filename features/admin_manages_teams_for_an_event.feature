@@ -12,3 +12,6 @@ Feature: Admin manages events
     When I click "Events"
     And I click "Add a team to Gangnam"
     Then I should see "New Team for Gangnam"
+    When I fill in the team name with "Team One"
+    And I press "Save"
+    Then I should see "Team One created"
