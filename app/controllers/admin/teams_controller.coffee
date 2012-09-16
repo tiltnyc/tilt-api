@@ -22,3 +22,14 @@ module.exports =
       res.render 'admin/teams/show',
         team: team
         messages: req.session.messages
+
+  edit: (req, res) ->
+    Team.findOne req.params.id, (error, team) ->
+      res.render 'admin/teams/edit',
+        team: team
+
+  update: (req, res) ->
+    Team.findByIdAndUpdate req.params.id, req.body.team, new :true, (error, team) ->
+      req.session.messages =
+        notice: "#{team.name} updated"
+      res.redirect "admin/events/#{team.event_id}/teams/#{team._id}"

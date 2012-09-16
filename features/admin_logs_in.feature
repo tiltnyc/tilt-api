@@ -7,8 +7,8 @@ Feature: Admin logs in and logs out
       | admin    | nimda    | Admin McAdmin |
     When I am on the homepage
     And I click "Login"
-    And I fill in admin[username] with "admin"
-    And I fill in admin[password] with "nimda"
+    And I fill in the username with "admin"
+    And I fill in the password with "nimda"
 
   Scenario: Admin logs in
     When I press "Login"

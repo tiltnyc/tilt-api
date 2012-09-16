@@ -15,3 +15,15 @@ Feature: Admin manages events
     When I fill in the team name with "Team One"
     And I press "Save"
     Then I should see "Team One created"
+
+  Scenario: Admin edits a team's name
+    And a team exists with the following:
+      | name     | event         |
+      | Team One | name: Gangnam |
+    When I click "Events"
+    And I click "Show teams for Gangnam"
+    Then I should see "Team One"
+    When I click "edit"
+    And I fill in the team name with "Team fAwesome"
+    And I press "Save"
+    Then I should see "Team fAwesome updated"
