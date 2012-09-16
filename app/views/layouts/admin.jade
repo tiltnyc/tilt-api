@@ -1,0 +1,30 @@
+doctype transitional
+html
+  head
+    title Tilt NYC
+    meta(http-equiv='Content-type', content='text/html;charset=UTF-8')
+    meta(name='keywords', content='tilt, tiltnyc')
+    meta(name='description', content='tilt')
+    link(rel='stylesheet', type='text/css', href='/css/bootstrap.css')
+    script(src='/js/bootstrap.js')
+    script(src='http://code.jquery.com/jquery-latest.js')
+  body
+    #navigation
+      block navigation
+        .navbar
+          .navbar-inner
+            a.brand(href='dashboard') Tilt - Admin
+            ul.nav
+              li(class=( ( tab == 'dashboard' ) ? 'active' : '' ) )
+                a(href='/admin/dashboard') Dashboard
+              li(class=( ( tab == 'events' ) ? 'active' : '' ) )
+                a(href='/admin/events') Events
+
+    #flashes
+      block flashes
+        - if ( typeof messages != 'undefined' )
+          - each message, key in locals.messages
+            p(class="#{ key }")= message
+
+    #content
+      block content

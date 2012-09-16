@@ -1,11 +1,14 @@
-extends ../../layouts/application
+extends ../../layouts/events
 
 block content
   a(href='/admin/events/new') New Event
-
   - if ( typeof events != 'undefined' )
-    - each event in events
-      .event
-        a(href="/admin/events/#{event._id}/edit") Edit #{event.name}
-        a(href="/admin/events/#{event._id}/teams/new") Add a team to #{event.name}
-        a(href="/admin/events/#{event._id}/teams/index") Show teams for #{event.name}
+      table.table
+        - each event in events
+          tr
+            td
+              a(href="/admin/events/#{event._id}/edit") Edit #{event.name}
+            td
+              a(href="/admin/events/#{event._id}/teams/new") Add a team to #{event.name}
+            td
+              a(href="/admin/events/#{event._id}/teams/index") Show teams for #{event.name}

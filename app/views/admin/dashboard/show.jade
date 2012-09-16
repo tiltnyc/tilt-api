@@ -1,4 +1,7 @@
-extends ../../layouts/application
+extends ../../layouts/admin
+
+prepend navigation
+  tab = 'dashboard'
 
 block content
   a(href='/admin/events') Events

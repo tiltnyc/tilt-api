@@ -1,4 +1,7 @@
-extends ../../layouts/application
+extends ../../layouts/sessions
+
+prepend navigation
+   tab = 'login'
 
 block content
   form(action='sessions/create', method='post')
