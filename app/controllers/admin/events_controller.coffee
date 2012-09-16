@@ -24,3 +24,14 @@ module.exports =
       res.render 'admin/events/show',
         event: event
         messages: req.session.messages
+
+  edit: (req, res) ->
+    Event.findOne req.params.id, (error, event) ->
+      res.render 'admin/events/edit',
+        event: event
+
+  update: (req, res) ->
+    Event.findByIdAndUpdate req.params.id, req.body.event, new: true, (error, event) ->
+      req.session.messages =
+        notice: "#{event.name} updated"
+      res.redirect "admin/events/#{event._id}"

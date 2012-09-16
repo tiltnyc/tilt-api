@@ -1,0 +1,7 @@
+form(
+  action="events/#{ event._id }/teams/create"
+  method='post' )
+  label(for='team_name') Name
+  input(id='team_name', name='team[name]', value=team.name)
+  br
+  input(type='submit', name='Save')

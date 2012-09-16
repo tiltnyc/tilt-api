@@ -5,4 +5,6 @@ block content
 
   - if ( typeof events != 'undefined' )
     - each event in events
-      p= event.name
+      .event
+        a(href="/admin/events/#{event._id}/edit") Edit #{event.name}
+        a(href="/admin/events/#{event._id}/teams/new") Add a team to #{event.name}

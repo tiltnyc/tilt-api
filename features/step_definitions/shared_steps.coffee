@@ -1,4 +1,5 @@
-should = require 'should'
+should       = require 'should'
+{ mongoose } = require '../../config/database'
 
 steps = module.exports = ->
 
@@ -10,8 +11,9 @@ steps = module.exports = ->
   @Then /^I (?:am on|go to) (.+)$/, (path, next) ->
     @browser.visit(@selectorFor(path), next)
 
-  @Then /^I fill in "(.+)" with "(.+)"$/, (name, value, next) ->
-    @browser.fill(name, value, next)
+  @Then /^I fill in (.+) with "(.+)"$/, (selector, value, next) ->
+    element = @selectorFor(selector)
+    @browser.fill(element, value, next)
 
   @Then /^I press "(.+)"$/, (name, next) ->
     @browser.pressButton(name, next)
@@ -19,12 +21,22 @@ steps = module.exports = ->
   @Then /^I click "(.+)"$/, (name, next) ->
     @browser.clickLink(name, next)
 
-  @Then /^I should (not )?see "(.+)"$/, (negation, text, next) ->
+  @Then /^I should (not )?see "([^"]+)"$/, (negation, text, next) ->
     if negation
       @browser.html().should.not.include(text)
     else
       @browser.html().should.include(text)
     next()
+
+  @Then /^the value of ([^"]+) should be "([^"]+)"$/, (selector, value, next) ->
+    selector = @selectorFor(selector)
+    value = @$(@browser.html()).find(selector)[0]['attribs']['value']
+    value.should.eql value, "#{selector} should have had a value of #{value}"
+    next()
+
+  @Then /^an? (.*) exists with the following:$/, (modelName, table, next) ->
+    model = mongoose.model(modelName.camelize())
+    model.create table.hashes(), next
 
   @Then /^show me the page$/, (next) ->
     @browser.wait =>
@@ -34,3 +46,16 @@ steps = module.exports = ->
       #@browser.viewInBrowser()
 
       next()
+
+  @Then /^show me the contents of (.*)$/, (namedElement, next) ->
+    @browser.wait =>
+      selector   = @selectorFor(namedElement)
+      htmlString = @browser.html(selector)
+
+      if @browser.errors.length
+        console.log "Errors: #{@browser.errors}"
+      console.log "\nHTML Contents of '#{selector}':\n"
+      console.log htmlString
+
+      next()
+
