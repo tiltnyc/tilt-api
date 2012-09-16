@@ -6,6 +6,7 @@ app = require '../../tilt'
 selectors       = require './selectors'
 _               = require 'underscore'
 sugar           = require 'sugar'
+jquery          = require 'jquery'
 { mongoose }    = require '../../config/database'
 DatabaseCleaner = require 'database-cleaner'
 zombie          = require 'zombie'
@@ -21,6 +22,7 @@ class World
     @browser   = new zombie.Browser()
     @_         = _
     @sugar     = sugar
+    @$         = jquery
     @selectors = selectors
 
     # tell Cucumber we're finished and to use 'this' as the world instance

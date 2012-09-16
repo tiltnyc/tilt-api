@@ -9,18 +9,24 @@ Feature: Admin manages events
     When I click "Events"
     Then I should see "New Event"
     When I click "New Event"
-    And I fill in "event[name]" with "Gangnam"
-    And I fill in "event[theme]" with "Style"
-    And I fill in "event[start_date]" with "09/29/2012"
+    And I fill in the event name with "Gangnam"
+    And I fill in the event theme with "Style"
+    And I fill in the event start date with "09/29/2012"
     And I press "Save"
     Then I should see "Gangnam created"
     And I should see "Gangnam"
     And I should see "Style"
     And I should see "Sat Sep 29"
 
-  Scenario: Admin can view an event
+  Scenario: Admin can edit an event
     Given an event exists with the following:
       | name    | theme | start_date |
       | Gangnam | Style | 12/11/2012 |
     When I click "Events"
-    Then I should see "edit Gangnam"
+    Then I should see "Edit Gangnam"
+    When I click "Edit Gangnam"
+    Then I should see "Editing Gangnam"
+    And show me the contents of the event name
+    And the value of the event name should be "Gangnam"
+    And the value of the event theme should be "Style"
+    And the value of the event start date should be "12/11/2012"

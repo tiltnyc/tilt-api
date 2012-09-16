@@ -24,3 +24,8 @@ module.exports =
       res.render 'admin/events/show',
         event: event
         messages: req.session.messages
+
+  edit: (req, res) ->
+    Event.findOne req.params.id, (error, event) ->
+      res.render 'admin/events/edit',
+        event: event
