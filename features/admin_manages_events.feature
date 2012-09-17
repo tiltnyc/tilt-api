@@ -25,7 +25,7 @@ Feature: Admin manages events
       | name    | theme | start_date |
       | Gangnam | Style | 12/11/2012 |
     When I click "Events"
-    And I click "Edit Gangnam"
+    And I click "Edit"
     Then I should see "Editing Gangnam"
     And the value of the event name should be "Gangnam"
     And the value of the event theme should be "Style"
@@ -34,3 +34,15 @@ Feature: Admin manages events
     And I press "Save"
     Then I should see "Oppa Gangnam updated"
     And I should see "Oppa Gangnam"
+
+  @one
+  Scenario: Admin can delete an event
+    Given an event exists with the following:
+      | name    | theme | start_date |
+      | Gangnam | Style | 12/11/2012 |
+    When I click "Events"
+    Then I should see "Edit"
+    When I press "Delete"
+    Then I should see "Gangnam has been deleted"
+    And I should not see "Edit Gangnam"
+    But I should see "New Event"

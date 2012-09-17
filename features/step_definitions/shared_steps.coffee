@@ -15,6 +15,10 @@ steps = module.exports = ->
     element = @selectorFor(selector)
     @browser.fill(element, value, next)
 
+  @Then /^I select "(.+)" from (.+)$/, (value, selector, next) ->
+    element = @selectorFor(selector)
+    @browser.select(element, value, next)
+
   @Then /^I press "(.+)"$/, (name, next) ->
     @browser.pressButton(name, next)
 
@@ -35,8 +39,28 @@ steps = module.exports = ->
     next()
 
   @Then /^an? (.*) exists with the following:$/, (modelName, table, next) ->
+    parseOptions = ( rawOptions, parsedOptions, callback ) ->
+      if Object.keys(rawOptions).length
+        if key = Object.keys(rawOptions).first()
+          value = rawOptions[key]
+          delete( rawOptions[key])
+          if match = value.match(new RegExp(/^(.+): (.+)$/))
+            params = {}
+            params[match[1]] = match[2]
+            associatedModel = mongoose.model(key.camelize())
+            associatedModel.findOne params, (error, doc) ->
+              parsedOptions[key + '_id'] = doc._id
+              parseOptions(rawOptions, parsedOptions, callback)
+          else
+            parsedOptions[key] = value
+            parseOptions(rawOptions, parsedOptions, callback)
+      else
+        callback(parsedOptions)
+
     model = mongoose.model(modelName.camelize())
-    model.create table.hashes(), next
+
+    parseOptions(table.hashes().first(), {}, ( parsedOptions ) ->
+      model.create parsedOptions, next)
 
   @Then /^show me the page$/, (next) ->
     @browser.wait =>

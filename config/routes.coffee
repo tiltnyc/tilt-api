@@ -11,13 +11,15 @@ module.exports = (app) ->
 
   app.get '/admin/dashboard',  Admin.DashboardController.show
 
-  app.get  '/admin/events',             Admin.EventsController.index
-  app.get  '/admin/events/new',         Admin.EventsController.new
-  app.post '/admin/events/create',      Admin.EventsController.create
-  app.get  '/admin/events/:id',         Admin.EventsController.show
-  app.get  '/admin/events/:id/edit',    Admin.EventsController.edit
-  app.post '/admin/events/:id/update',  Admin.EventsController.update
+  app.get  '/admin/events',              Admin.EventsController.index
+  app.get  '/admin/events/new',          Admin.EventsController.new
+  app.post '/admin/events/create',       Admin.EventsController.create
+  app.get  '/admin/events/:id',          Admin.EventsController.show
+  app.get  '/admin/events/:id/edit',     Admin.EventsController.edit
+  app.post '/admin/events/:id/update',   Admin.EventsController.update
+  app.put  '/admin/events/:id/destroy',  Admin.EventsController.destroy
 
+  app.get  '/admin/events/:event_id/teams',             Admin.TeamsController.index
   app.get  '/admin/events/:event_id/teams/new',         Admin.TeamsController.new
   app.post '/admin/events/:event_id/teams/create',      Admin.TeamsController.create
   app.get  '/admin/events/:event_id/teams/:id',         Admin.TeamsController.show

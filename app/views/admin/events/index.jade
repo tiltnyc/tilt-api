@@ -6,9 +6,12 @@ block content
       table.table
         - each event in events
           tr
+            td= event.name
             td
-              a(href="/admin/events/#{event._id}/edit") Edit #{event.name}
+              a(href="/admin/events/#{event._id}/edit") Edit
             td
-              a(href="/admin/events/#{event._id}/teams/new") Add a team to #{event.name}
+              form(action="events/#{event._id}/destroy", method='post')
+                input(type='hidden', name='_method', value='put')
+                input(type='submit', name='Delete', value='Delete')
             td
-              a(href="/admin/events/#{event._id}/teams/index") Show teams for #{event.name}
+              a(href="/admin/events/#{event._id}/teams") Teams

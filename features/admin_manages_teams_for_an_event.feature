@@ -10,7 +10,8 @@ Feature: Admin manages events
 
   Scenario: Admin can create teams for an event
     When I click "Events"
-    And I click "Add a team to Gangnam"
+    And I click "Teams"
+    And I click "New Team"
     Then I should see "New Team for Gangnam"
     When I fill in the team name with "Team One"
     And I press "Save"
@@ -21,7 +22,7 @@ Feature: Admin manages events
       | name     | event         |
       | Team One | name: Gangnam |
     When I click "Events"
-    And I click "Show teams for Gangnam"
+    And I click "Teams"
     Then I should see "Team One"
     When I click "edit"
     And I fill in the team name with "Team fAwesome"

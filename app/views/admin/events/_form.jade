@@ -1,11 +1,20 @@
-form( action= ( event.isNew ) ? 'create' : 'update' , method='post' )
-  label(for='event_name') Name
-  input(id='event_name', name='event[name]', value=event.name)
-  br
-  label(for='event_theme') Theme
-  input(id='event_theme', name='event[theme]', value=event.theme)
-  br
-  label(for='event_start_date') Start Date
-  input(id='event_start_date', name='event[start_date]', value=event.start_date)
-  br
-  input(type='submit', name='Save')
+form.form-horizontal(action= ( event.isNew ) ? 'create' : 'update', method='post' )
+  if ( !event.isNew )
+    legend Editing #{event.name}
+  else
+    legend New Event
+  .control-group
+    label.control-label(for='event_name') Name
+    .controls
+      input(id='event_name', name='event[name]', value=event.name)
+  .control-group
+    label.control-label(for='event_theme') Theme
+    .controls
+      input(id='event_theme', name='event[theme]', value=event.theme)
+  .control-group
+    label.control-label(for='event_start_date') Start Date
+    .controls
+      input(id='event_start_date', name='event[start_date]', value=event.start_date)
+  .control-group
+    .controls
+      input(type='submit', name='Save')
