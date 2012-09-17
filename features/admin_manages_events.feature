@@ -35,7 +35,6 @@ Feature: Admin manages events
     Then I should see "Oppa Gangnam updated"
     And I should see "Oppa Gangnam"
 
-  @one
   Scenario: Admin can delete an event
     Given an event exists with the following:
       | name    | theme | start_date |

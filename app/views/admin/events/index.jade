@@ -11,7 +11,7 @@ block content
               a(href="/admin/events/#{event._id}/edit") Edit
             td
               form(action="events/#{event._id}/destroy", method='post')
-                input(type='hidden', name='_method', value='put')
+                input(type='hidden', name='_method', value='delete')
                 input(type='submit', name='Delete', value='Delete')
             td
               a(href="/admin/events/#{event._id}/teams") Teams
