@@ -1,15 +1,17 @@
-extends ../../layouts/teams
+extends ../../layouts/competitors
 
 block content
   a(href='teams/new') New Team
   - if ( typeof teams != 'undefined' )
-      table.table
-        - each team in teams
-          tr
-            td= team.name
-            td
-              a(href="teams/#{team._id}/edit") edit
-            td
-              form(action="#{team._id}/destroy", method='post')
-                input(type='hidden', name='_method', value='put')
-                input(type='submit', name='Delete', value='Delete')
+    table.table
+      - each team in teams
+        tr
+          td= team.name
+          td
+            a(href="teams/#{team._id}/edit") edit
+          td
+            form(action="#{team._id}/destroy", method='post')
+              input(type='hidden', name='_method', value='put')
+              input(type='submit', name='Delete', value='Delete')
+          td
+            a(href="teams/#{team._id}/competitors") Competitors

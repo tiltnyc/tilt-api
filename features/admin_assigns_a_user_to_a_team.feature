@@ -16,7 +16,7 @@ Feature: Admin assigns users to a team
     And I click "Events"
     And I click "Teams"
     And I click "Competitors"
-    And I click "add"
+    And I click "Add Competitor"
     When I select "Ryan Dahl" from the available users list
     And I press "Add"
     Then I should see "Ryan Dahl added to Team One"

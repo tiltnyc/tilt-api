@@ -1,0 +1,18 @@
+form.form-horizontal(action= ( competitor.isNew ) ? 'create' : 'update', method='post' )
+  legend Adding a Competitor
+
+  if ( !competitor.isNew )
+    input(type='hidden', name='_method', value='put')
+
+  input(type='hidden', name='competitor[team_id]', value=competitor.team_id)
+
+  .control-group
+    label.control-label(for='competitor_user_id') Competitors
+    .controls
+      select(id='competitor_user_id', name='competitor[user_id]')
+        for user in users
+          option(value=user._id)= user.name
+
+  .control-group
+    .controls
+      input(type='submit', name='Add')

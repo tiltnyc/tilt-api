@@ -25,3 +25,7 @@ module.exports = (app) ->
   app.get   '/admin/events/:event_id/teams/:id',         Admin.TeamsController.show
   app.get   '/admin/events/:event_id/teams/:id/edit',    Admin.TeamsController.edit
   app.put   '/admin/events/:event_id/teams/:id/update',  Admin.TeamsController.update
+
+  app.get   '/admin/events/:event_id/teams/:team_id/competitors',         Admin.CompetitorsController.index
+  app.get   '/admin/events/:event_id/teams/:team_id/competitors/new',     Admin.CompetitorsController.new
+  app.post  '/admin/events/:event_id/teams/:team_id/competitors/create',  Admin.CompetitorsController.create
