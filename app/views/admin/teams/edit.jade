@@ -1,5 +1,9 @@
 extends ../../layouts/teams
 
 block content
-  .edit.team Edit Team for #{ team.name }
-    include _form
+  legend Editing #{ team.name }
+  include _form
+  if (typeof users != 'undefined')
+    if ( !users.isEmpty() )
+      br
+      include _add_competitors

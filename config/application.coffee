@@ -1,3 +1,4 @@
+sugar        = require 'sugar'
 express      = require 'express'
 path         = require 'path'
 config       = require 'yaml-config'

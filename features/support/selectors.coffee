@@ -7,12 +7,13 @@ module.exports =
   '^(.*) containing "([^"]*)"$': (namedElement, text) ->
     return "#{@selectorFor(namedElement)}:contains('#{text}')"
 
-  'the event name':        '#event_name'
-  'the event theme':       '#event_theme'
-  'the event start date':  '#event_start_date'
-  'the password':          '#admin_password'
-  'the team name':         '#team_name'
-  'the username':          '#admin_username'
+  'the available users list':  '#competitor_user'
+  'the event name':            '#event_name'
+  'the event theme':           '#event_theme'
+  'the event start date':      '#event_start_date'
+  'the password':              '#admin_password'
+  'the team name':             '#team_name'
+  'the username':              '#admin_username'
 
   # Paths
   'the admin login page':  '/admin/login/'

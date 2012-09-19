@@ -1,0 +1,13 @@
+extends ../../layouts/teams
+
+block content
+  a(href='competitors/new') Add Competitor
+  - if ( typeof competitors != 'undefined' )
+    table.table
+      - each competitor in competitors
+        tr
+          td= competitor.user.name
+          td
+            form(action="#{competitor._id}/destroy", method='post')
+              input(type='hidden', name='_method', value='put')
+              input(type='submit', name='Remove')
