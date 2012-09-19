@@ -1,8 +1,8 @@
 { mongoose, Schema } = require '../../config/database'
 
 CompetitorSchema = new Schema
-  team_id:     { type:  Schema.Types.ObjectId, ref: 'Team' }
-  user_id:     { type:  Schema.Types.ObjectId, ref: 'User' }
+  team:        { type:  Schema.Types.ObjectId, ref: 'Team' }
+  user:        { type:  Schema.Types.ObjectId, ref: 'User' }
   created_at:  { type:  Date, default: Date.now }
   updated_at:  { type:  Date, default: Date.now }
 

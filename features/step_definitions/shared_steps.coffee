@@ -49,7 +49,7 @@ steps = module.exports = ->
             params[match[1]] = match[2]
             associatedModel = mongoose.model(key.camelize())
             associatedModel.findOne params, (error, doc) ->
-              parsedOptions[key + '_id'] = doc._id
+              parsedOptions[key] = doc._id
               parseOptions(rawOptions, parsedOptions, callback)
           else
             parsedOptions[key] = value

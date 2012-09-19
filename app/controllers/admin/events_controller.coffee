@@ -1,5 +1,5 @@
-{ mongoose }   = require '../../../config/database'
-Event          = mongoose.model('Event')
+{ mongoose } = require '../../../config/database'
+Event        = mongoose.model('Event')
 
 module.exports =
   index: (req, res) ->

@@ -7,7 +7,7 @@ module.exports =
   '^(.*) containing "([^"]*)"$': (namedElement, text) ->
     return "#{@selectorFor(namedElement)}:contains('#{text}')"
 
-  'the available users list':  '#competitor_user_id'
+  'the available users list':  '#competitor_user'
   'the event name':            '#event_name'
   'the event theme':           '#event_theme'
   'the event start date':      '#event_start_date'
