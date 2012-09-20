@@ -3,9 +3,15 @@ default:
     uri: 'mongodb://localhost/tilt_development'
   app:
     port: 3000
+  twitter:
+    consumerKey: 'UyBmXhueDhEL96wzNYGtqg'
+    consumerSecret: 'orIdHUa0uxFcEnUNuhrYLtngtJTdGyWzvCGhlAHNr4'
 
 test:
   db:
     uri: 'mongodb://localhost/tilt_test'
   app:
     port: 3030
+  twitter:
+    consumerKey: 'UyBmXhueDhEL96wzNYGtqg'
+    consumerSecret: 'orIdHUa0uxFcEnUNuhrYLtngtJTdGyWzvCGhlAHNr4'

@@ -8,3 +8,12 @@ block content
     a(href='admin/dashboard') Dashboard
   else
     a(href='admin/login') Login
+
+  - if (!everyauth.loggedIn)
+    a(href='/auth/twitter') Twitter
+  - else
+    a(href='/logout') Logout
+    h2 Authenticated
+    - if (everyauth.twitter)
+      h3 Twitter User Data
+      p= JSON.stringify(everyauth.twitter.user)

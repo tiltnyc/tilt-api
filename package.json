@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "coffee-script": "1.3.3",
+    "everyauth":     "git://github.com/bnoguchi/everyauth.git#express3",
     "express":       "3.0.0rc4",
     "fs":            "latest",
     "jade":          "0.27.2",

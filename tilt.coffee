@@ -5,9 +5,10 @@ app = express()
 
 app.root = __dirname
 
-require('./config/bootstrap'  )(app)
-require('./config/application')(app)
-require('./config/routes'     )(app)
+require('./config/bootstrap'     )(app)
+require('./config/authentication')()
+require('./config/application'   )(app)
+require('./config/routes'        )(app)
 
 module.exports = app
 
