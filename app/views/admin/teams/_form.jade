@@ -1,7 +1,18 @@
-form(
-  action=( team.isNew ) ? 'create' : 'update'
-  method='post' )
-  label(for='team_name') Name
-  input(id='team_name', name='team[name]', value=team.name)
-  br
-  input(type='submit', name='Save')
+form.form-horizontal(action= ( team.isNew ) ? 'create' : 'update', method='post' )
+
+  if ( !team.isNew )
+    legend Editing #{team.name}
+  else
+    legend New Team
+
+  if ( !team.isNew )
+    input(type='hidden', name='_method', value='put')
+
+  .control-group
+    label.control-label(for='team_name') Name
+    .controls
+      input(id='team_name', name='team[name]', value=team.name)
+
+  .control-group
+    .controls
+      input(type='submit', name='Save')

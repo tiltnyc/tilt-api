@@ -1,11 +1,12 @@
-{ mongoose }   = require '../../../config/database'
-Event          = mongoose.model('Event')
+{ mongoose } = require '../../../config/database'
+Event        = mongoose.model('Event')
 
 module.exports =
   index: (req, res) ->
     Event.find({}).exec (error, events) ->
       res.render 'admin/events/index',
         events: events
+        messages: req.session.messages
 
   new: (req, res) ->
     res.render 'admin/events/new',
@@ -35,3 +36,9 @@ module.exports =
       req.session.messages =
         notice: "#{event.name} updated"
       res.redirect "admin/events/#{event._id}"
+
+  destroy: (req, res) ->
+    Event.findByIdAndRemove req.params.id, (error, event) ->
+      req.session.messages =
+        notice: "#{event.name} has been deleted"
+      res.redirect "admin/events"

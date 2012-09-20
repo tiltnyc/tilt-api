@@ -1,0 +1,5 @@
+form
+  label(for='team_competitors') Competitors
+  select(id='team_competitors', name='team[competitors]')
+    for user in users
+      option(value=user.name)
